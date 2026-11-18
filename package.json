@@ -1,0 +1,25 @@
+{
+  "name": "kazi_recommend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "家事をLINEでレコメンドするbot (Cloudflare Workers)",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "vitest run && tsc --noEmit && wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "wrangler d1 migrations apply kazi-recommend --remote",
+    "db:migrate:local": "wrangler d1 migrations apply kazi-recommend --local"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hisatarosu/kazi_recommend.git"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261117.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.163.0"
+  }
+}

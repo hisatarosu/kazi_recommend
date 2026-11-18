@@ -1,0 +1,18 @@
+name = "kazi-recommend"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+# Cron は UTC で書く。JST = UTC + 9時間
+#   "0 22 * * *" → 毎朝 7:00 (JST): 今日のゴミ + おすすめ家事
+#   "0 10 * * *" → 毎晩 19:00 (JST): 明日が remindNightBefore 付きのゴミの日のときだけ通知
+[triggers]
+crons = ["0 22 * * *", "0 10 * * *"]
+
+# `npx wrangler d1 create kazi-recommend` で表示される database_id に置き換える
+[[d1_databases]]
+binding = "DB"
+database_name = "kazi-recommend"
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+
+[observability]
+enabled = true
